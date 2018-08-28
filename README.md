@@ -4,3 +4,4 @@ Main objects:
  Answer
  User (can be adminictrator)
  Result
+ Category(of test)
