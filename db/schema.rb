@@ -10,41 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_060024) do
+ActiveRecord::Schema.define(version: 2018_08_29_061802) do
 
   create_table "answers", force: :cascade do |t|
-    t.string "body"
-    t.boolean "correct"
-    t.integer "question_id"
+    t.string "body", null: false
+    t.boolean "correct", null: false
+    t.integer "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "body"
-    t.integer "test_id"
+    t.string "body", null: false
+    t.integer "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title"
-    t.integer "level"
+    t.string "title", null: false
+    t.integer "level", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "id_category"
+    t.integer "id_category", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "login"
-    t.string "password"
+    t.string "name", null: false
+    t.string "login", null: false
+    t.string "password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
