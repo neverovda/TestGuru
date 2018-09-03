@@ -1,9 +1,7 @@
 class Test < ApplicationRecord
-  def self.tests_name_by(category)
-    record_ctgr = Category.where(title: category)
-    return unless record_ctgr
-    tests = where(category_id: record_ctgr.ids.first).order(title: :desc)
-    return if tests.empty?
-    tests.map(&:title)
+  belongs_to :category
+  has_many :test_passage 
+  def self.by_category(category)
+    select(:title).joins(:category).where(categories: {title: category}).order(title: :desc)    
   end
 end
