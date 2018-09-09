@@ -14,11 +14,11 @@ categories = Category.create!([{ title: 'biology' },
                                { title: 'physics' }])
 
 users = User.create!([{ name: 'Bobby', login: 'megatron',
-                        password: 'bobby123' },
+                        password: 'bobby123' , email: 'b@maiil.com'},
                       { name: 'Mary', login: 'mar_1',
-                        password: 'mary2010' },
+                        password: 'mary2010', email: 'm@maiil.com' },
                       { name: 'John White', login: 'the_best_teacher',
-                        password: 'f8rnkallks8' }])
+                        password: 'f8rnkallks8', email: 'j@maiil.com' }])
 
 tests = Test.create!([{ title: 'botany', level: 1, category: categories[0],
                         author: users[2] },
