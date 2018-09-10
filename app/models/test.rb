@@ -18,10 +18,9 @@ class Test < ApplicationRecord
 
   scope :tests_by_category, -> (category) { joins(:category).
                                             where(categories: {title: category}) }
-  scope :order_desc, -> { order(title: :desc) } 
-
+  
   def self.by_category(category)
-    tests_by_category(category).order_desc.pluck(:title)                   
+    tests_by_category(category).order(title: :desc).pluck(:title)                   
   end
 
 end

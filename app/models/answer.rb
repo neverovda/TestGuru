@@ -2,8 +2,16 @@ class Answer < ApplicationRecord
 
   belongs_to :question
 
-  validates :body, presence: true
-
   scope :only_correct, -> { where(correct: true) }
+
+  validates :body, presence: true
+  validate :validate_amount_answers
+
+  def validate_amount_answers
+    brothers_answers = question.answers 
+    return if brothers_answers.include? self
+    return if brothers_answers.length < 4  
+    errors.add(:answers, 'Amount of ansers to question sholud be from 1 to 4')
+  end
 
 end
