@@ -5,8 +5,4 @@ class Question < ApplicationRecord
   
   validates :body, presence: true
 
-  def answer_belongs? (answer)
-    answers.include? answer
-  end  
-  
 end

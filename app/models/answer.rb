@@ -5,12 +5,10 @@ class Answer < ApplicationRecord
   scope :only_correct, -> { where(correct: true) }
 
   validates :body, presence: true
-  validate :validate_amount_answers
+  validate :validate_amount_answers, on: :create
 
   def validate_amount_answers
-    brothers_answers = question.answers 
-    return if brothers_answers.include? self
-    return if brothers_answers.length < 4  
+    return if question.answers.length < 4  
     errors.add(:answers, 'Amount of ansers to question sholud be from 1 to 4')
   end
 
