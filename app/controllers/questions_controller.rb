@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @test.questions.build(question_params).save!
+    @test.questions.create!(question_params)
     render plain: 'Question created'    
   end
 
@@ -29,9 +29,8 @@ class QuestionsController < ApplicationController
 
   private
 
-  def question_params 
-    { test_id: @test.id,
-      body: params[:question][:body] }
+  def question_params
+    params.require(:question).permit(:body) 
   end  
 
   def find_test
@@ -43,7 +42,7 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found(exception)
-    render plain: "#{exception.model} whis id #{exception.id} not found."  
+    render plain: "#{exception.model} with id #{exception.id} not found."  
   end
   
 end
