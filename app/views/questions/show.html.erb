@@ -1,0 +1,13 @@
+<p>
+  <strong>Question: </strong>
+  <%= @question.body %>
+</p>
+
+<p>
+  <strong>Variants of answers: </strong>
+  <%= render(@question.answers) || (render html: tag.p('The question has no answers')) %> 
+  
+</p>
+
+<%= link_to 'Back', test_questions_path(test_id: @question.test_id) %> 
+<%= link_to 'Edit', edit_question_path(@question) %>

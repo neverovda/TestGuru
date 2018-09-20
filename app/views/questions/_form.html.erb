@@ -1,0 +1,13 @@
+<%= form_with model: resource, local: true do |form| %>
+  
+  <%= render 'shared/errors', resource: (resource.kind_of?(Array) ? 
+                                         resource.last : resource) %> 
+
+  <p>
+    <%= form.label :body %>
+    <%= form.text_field :body, id: :question_body %>
+  </p>  
+
+  <p><%= form.submit %></p>
+
+<% end %>  
