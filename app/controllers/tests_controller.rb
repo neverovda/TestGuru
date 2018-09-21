@@ -1,12 +1,11 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[update, destroy]
+  before_action :find_test, only: %i[show update destroy]
 
   def index
   end
 
-  def show
-    redirect_to test_questions_path(test_id: params[:id])
+  def show    
   end
 
   def new
