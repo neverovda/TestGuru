@@ -1,11 +1,7 @@
 module QuestionHelper
   
   def qustion_header(question)
-    if question.new_record? 
-      verb = 'New'
-    else
-      verb = 'Edit'
-    end    
+    verb = question.new_record? ? 'New': 'Edit'
     content_tag(:h1, "#{verb} #{question.test.title.capitalize} Question")    
   end
 
