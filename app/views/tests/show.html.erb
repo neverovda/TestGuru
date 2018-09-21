@@ -1,0 +1,29 @@
+<h2>Test</h2>
+<p>
+  <strong>Title: </strong>
+  <%= @test.title %><br>
+  <strong>Category: </strong>
+  <%= @test.category.title %><br>
+  <strong>Level: </strong>
+  <%= @test.level %><br>
+</p>
+
+<p>
+  <%= link_to 'Back', tests_path %>
+  <%= link_to 'New question', new_test_question_path(test_id: @test.id) %>   
+</p>
+
+
+<table>
+  <caption>Questions</caption>
+  <tr>
+    <th>Body</th>
+    <th colspan="3">Action</th>
+  </tr>
+
+  <%= render @test.questions %>
+
+  <% unless @test.questions.present? %>
+    <th colspan="4">The test has no questions</th>  
+  <% end %>
+</table>
