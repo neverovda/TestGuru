@@ -1,16 +1,17 @@
+<h1><%= @question.test.title %>  Question</h1>
+
 <p>
-  <strong>Question: </strong>
   <%= @question.body %>
 </p>
 
-<p>
-  <strong>Variants of answers: </strong>
+
+<h2>Variants of answers: </h2>
+
+<%= link_to 'New answer', new_question_answer_path(@question) %> 
+
+<ol>
   <%= render(@question.answers) %> 
-  
-  <% unless @question.answers.present? %>
-    <p>The question has no answers</p>  
-  <% end %>
-</p>
+</ol>
 
 <%= link_to 'Back', test_path(id: @question.test_id) %> 
 <%= link_to 'Edit', edit_question_path(@question) %>
