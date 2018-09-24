@@ -4,8 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_validation :before_validation_next_question, on: :update
+  before_validation :before_validation_next_question, on: [:create, :update]
 
 
   def completed?
@@ -13,33 +12,30 @@ class TestPassage < ApplicationRecord
   end  
 
   def accept!(answers_ids)
-    if correct_answer?(answers_ids)
-      self.correct_questions += 1
-    end
-   
+    self.correct_questions += 1 if correct_answer?(answers_ids)
     save!
   end
 
-  def totals
-    percanteges = (correct_questions.to_f/test.questions.size * 100).round
-    { percanteges: percanteges, success: (percanteges >= 85 ? true : false) }
+  def total_percanteges
+    (correct_questions.to_f/test.questions.size * 100).round
+  end  
+    
+  def success?
+    total_percanteges >= 85
   end
 
-  def progress
-    all_questions = test.questions.size
-    { current: all_questions - unanswered_questions.size,
-      total: all_questions }    
-  end    
+  def amount_questions
+    test.questions.size
+  end  
+
+  def number_of_current_question
+    amount_questions - unanswered_questions.size  
+  end
 
   private
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
-  end
-
   def correct_answer?(answers_ids)
-    return false if answers_ids.nil?
-    correct_answers.ids.sort == answers_ids.map(&:to_i).sort
+    correct_answers.ids.sort == Array(answers_ids).map(&:to_i).sort
   end
 
   def correct_answers
@@ -47,6 +43,10 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_next_question
+    if self.current_question.nil? 
+      self.current_question = test.questions.first if test.present?
+      return
+    end  
     self.current_question = unanswered_questions.first
   end
 
