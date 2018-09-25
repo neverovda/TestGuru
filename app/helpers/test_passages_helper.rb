@@ -3,8 +3,9 @@ module TestPassagesHelper
   def result(test_passage)
     class_name = test_passage.success? ? 'success' : 'failure'
     content_tag(:p) do 
-      content_tag(:span, "Result: ") + 
-      content_tag(:b, test_passage.total_percanteges, class: class_name)
+      "Result: ".html_safe + 
+      content_tag(:b, test_passage.total_percanteges, class: class_name) +
+      "%".html_safe
     end   
   end
 
