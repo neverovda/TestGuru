@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP },
+                                    uniqueness: true
   validates :password, confirmation: true
 
   has_secure_password

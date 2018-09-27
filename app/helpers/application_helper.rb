@@ -9,4 +9,9 @@ module ApplicationHelper
                           target: '_blank')    
   end
 
+  def flash_message(name)
+    return unless flash[name]
+    content_tag :p, flash[name], class: 'flash alert'
+  end 
+
 end
