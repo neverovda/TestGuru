@@ -1,4 +1,4 @@
-class TestPassagesController < ApplicationController
+class TestPassagesController < AuthenticationController
 
   before_action :find_test_passage, only: %i[show update result]
 
