@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  
-  skip_before_action :authenticate_user!
-  
+   
   def new
   end
 
@@ -19,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def exit
-    reset_session
+    session.delete :user_id
     redirect_to login_path
   end  
 

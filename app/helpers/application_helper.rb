@@ -10,8 +10,7 @@ module ApplicationHelper
   end
 
   def flash_message(name)
-    return unless flash[name]
-    content_tag :p, flash[name], class: 'flash alert'
+    content_tag :p, flash[name], class: "flash #{name}" if flash[name]
   end 
 
 end

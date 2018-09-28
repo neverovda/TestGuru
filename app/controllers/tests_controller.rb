@@ -1,4 +1,4 @@
-class TestsController < ApplicationController
+class TestsController < AuthenticationController
 
   before_action :find_test, only: %i[show update destroy start]
 
