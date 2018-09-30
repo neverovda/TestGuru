@@ -16,7 +16,6 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
-  validates :name, presence: true
   validates :email, presence: true, format: { with: /@/ },
                                     uniqueness: true
   validates :password, confirmation: true
