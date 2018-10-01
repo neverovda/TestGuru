@@ -1,4 +1,4 @@
-class AnswersController < ActionController::Base
+class Admin::AnswersController < Admin::BaseController
 
   before_action :find_question, only: %i{new create}
   before_action :find_answer, only: %i{show edit update destroy}
@@ -17,7 +17,7 @@ class AnswersController < ActionController::Base
     @answer = @question.answers.new(answer_params)
         
     if @answer.save
-      redirect_to @answer
+      redirect_to [:admin, @answer]
     else
       render :edit
     end
@@ -25,7 +25,7 @@ class AnswersController < ActionController::Base
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer
+      redirect_to [:admin, @answer]
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class AnswersController < ActionController::Base
   
   def destroy
     @answer.destroy
-    redirect_to @answer.question
+    redirect_to [:admin, @answer.question]
   end
 
   private
