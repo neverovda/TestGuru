@@ -1,4 +1,4 @@
-class AnswersController < AuthenticationController
+class AnswersController < ActionController::Base
 
   before_action :find_question, only: %i{new create}
   before_action :find_answer, only: %i{show edit update destroy}

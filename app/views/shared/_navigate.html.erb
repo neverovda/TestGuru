@@ -1,7 +1,7 @@
 <ul class="nav user">
   <li><%= link_to 'TestGuru', root_path %></li>
   <% if user_signed_in? %>
-    <li> Welcome <b><%= current_user.name %></b> Guru </li>
+    <li> Welcome <b><%= current_user.email %></b> Guru </li>
     <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li><%= link_to 'Sign up', new_user_registration_path %></li>

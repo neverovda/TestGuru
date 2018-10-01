@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy!
-    redirect_to test_path(id: @question.test_id)   
+    redirect_to admin_test_path(id: @question.test_id)   
   end
 
   private

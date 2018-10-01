@@ -1,5 +1,9 @@
 <h1>Tests</h1>
 
+<p>
+  <%= link_to 'New test', new_admin_test_path %>
+</p>
+
 <table>
    <tr>
     <th>Title</th>
@@ -7,12 +11,12 @@
     <th>Category</th>
     <th>Author</th>
     <th>Quantity questins</th>
-    <th>Action</th>
+    <th colspan="3">Action</th>
   </tr>
 
   <%= render @tests %>
 
   <% unless @tests.present? %>
-    <th colspan="6">No tests</th>  
+    <th colspan="8">No tests</th>  
   <% end %>
 </table>
