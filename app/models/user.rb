@@ -20,6 +20,10 @@ class User < ApplicationRecord
                                     uniqueness: true
   validates :password, confirmation: true
 
+  def admin?
+    self.is_a?(Admin)
+  end  
+
   def test_by_level(level)
     tests.by_level(level)
   end
