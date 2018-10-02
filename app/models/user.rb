@@ -1,4 +1,13 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, 
+         :registerable,
+         :recoverable, 
+         :rememberable, 
+         :validatable,
+         :trackable,
+         :confirmable
 
   attr_writer :password_confirmation
 
@@ -7,12 +16,13 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
-  validates :name, presence: true
   validates :email, presence: true, format: { with: /@/ },
                                     uniqueness: true
   validates :password, confirmation: true
 
-  has_secure_password
+  def admin?
+    self.is_a?(Admin)
+  end  
 
   def test_by_level(level)
     tests.by_level(level)
