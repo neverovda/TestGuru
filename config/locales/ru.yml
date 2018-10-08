@@ -1,5 +1,10 @@
 ru:
-  hello: "Привет мир"
+  back: "Назад"
+  show: "Показать"
+  edit: "Изменить"
+  delete: "Удалить"
+  confirm: "Вы уверены?"
+  action: "Действие"
 
   helpers:
     submit:
@@ -10,7 +15,9 @@ ru:
         test:
           title: "Название"
           level: "Уровень"
-          category_id: "Категория" 
+          category_id: "Категория"
+    select:
+      prompt: "Выберите категорию"      
 
   shared:
     errors:
@@ -19,22 +26,70 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружено %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    footer:
+      project: "Проект для курса"
+      desingn: "Описание: создане и прохождение тестов"
+      author: "Автор: Дмитрий Неверов"
+    navigate:
+      logout: "Выйти"
+      sign_up: "Регистрация"
+      sign_in: "Войти"        
 
+  users:
+    sessions:
+      create:
+        welcome: "Добро пожаловать"    
+  
   tests:
     index:
       header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"  
+      author: "Автор"
+      quantity_questins: "Количество вопросов"
+    test:
+      start: "Старт"    
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"    
+      header: "Тест %{title} успешно завершён!"
+      all_tests: "Все тесты"
+      result: "Результат: "
+    show:  
+      from: "из"    
 
 
   admin:    
+    nav:
+      admin_panel: "Панель админа"
+      logout: "Выйти"
+      guru: "Гуру"
+      welcome: "Добро пожаловать"
     tests:
       index:
         header: "Тесты"
+        new_test: "Новый тест"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"  
+        author: "Автор"
+        quantity_questins: "Количество вопросов"
+        action: "Действие"
+        no_tests: "Нет тестов"
+      show:
+        header: "Тест"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        new_question: "Новый вопрос"
+        questions: "Вопросы"
+        body: "Содержание"  
+      new:
+        header: "Создание нового теста"
       create:
         success: "Тест успешно создан."
+
 
   tests_mailer:
     completed_test:

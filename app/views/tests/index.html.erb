@@ -2,17 +2,17 @@
 
 <table>
    <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Category</th>
-    <th>Author</th>
-    <th>Quantity questins</th>
-    <th>Action</th>
+    <th><%= t('.title') %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.category') %></th>
+    <th><%= t('.author') %></th>
+    <th><%= t('.quantity_questins') %></th>
+    <th><%= t('action') %></th>
   </tr>
 
   <%= render @tests %>
 
   <% unless @tests.present? %>
-    <th colspan="6">No tests</th>  
+    <th colspan="6"><%= t('.no_tests') %></th>  
   <% end %>
 </table>
