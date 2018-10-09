@@ -36,7 +36,7 @@ en:
   users:
     sessions:
       create:
-        welcome: "Welcome %{first_name} %{last_name}"    
+        welcome: "Welcome %{full_name}"    
 
   tests:
     index:

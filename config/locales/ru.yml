@@ -38,7 +38,7 @@ ru:
   users:
     sessions:
       create:
-        welcome: "Добро пожаловать %{first_name} %{last_name}"    
+        welcome: "Добро пожаловать %{full_name}"    
   
   tests:
     index:
