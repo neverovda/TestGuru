@@ -33,7 +33,8 @@ ru:
     navigate:
       logout: "Выйти"
       sign_up: "Регистрация"
-      sign_in: "Войти"        
+      sign_in: "Войти"
+      admin_panel: "Панель администратора"        
 
   users:
     sessions:
@@ -62,7 +63,7 @@ ru:
 
   admin:    
     nav:
-      admin_panel: "Панель админа"
+      admin_panel: "TestGuru: Панель админа"
       logout: "Выйти"
       guru: "Гуру"
       welcome: "Добро пожаловать"
@@ -70,6 +71,7 @@ ru:
       index:
         header: "Тесты"
         new_test: "Новый тест"
+        custom_test_view: "Пользовательский вид тестов"
         title: "Название"
         level: "Уровень"
         category: "Категория"  
