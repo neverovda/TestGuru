@@ -58,7 +58,10 @@ ru:
       all_tests: "Все тесты"
       result: "Результат: "
     show:  
-      from: "из"    
+      from: "из"
+    gist:
+      success: "Gist успешно созранён!"
+      failure: "Во время сохранения gits произошла ошибка"      
 
 
   admin:    

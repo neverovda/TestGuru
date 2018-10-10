@@ -57,7 +57,10 @@ en:
       all_tests: "All tests"
       result: "Result: "
     show:  
-      from: "from"    
+      from: "from"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"      
     
 
   admin:
