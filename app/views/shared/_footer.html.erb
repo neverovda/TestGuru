@@ -1,7 +1,19 @@
-<footer>
-  <p><%= t('.project') %> <a href="http://thinknetica.com/" target="_blank">thinknetica</a></p>
-  <p><%= t('.desingn') %> </p>
-  <p><%= t('.author') %> </p>
-  <p> GitHub: <%= github_link('neverovda', 'thinknetica_TestGuru') %></p>
-  <p> <%= current_year %></p>  
+<footer class="footer">
+  <div class="container pt-3">  
+    <div class="row text-center">  
+      <div class="col-12 col-md-6">
+        <p><%= t('.project') %> <a href="http://thinknetica.com/" target="_blank">thinknetica</a></p>
+        <p><%= t('.desingn') %> </p>
+      </div>
+      <div class="col-12 col-md-6">  
+        <p><%= t('.author') %> </p>
+        <p> GitHub: <%= github_link('neverovda', 'thinknetica_TestGuru') %></p>
+      </div>
+    </div>
+    <div class="row text-center">  
+      <div class="col">
+        <p> <%= current_year %></p>
+      </div>
+    </div>  
+  </div>
 </footer>

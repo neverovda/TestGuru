@@ -31,7 +31,8 @@ en:
     navigate:
       logout: "Logout"
       sign_up: "Sign up"
-      sign_in: "Sign in"      
+      sign_in: "Sign in"
+      admin_panel: "Admin panel"      
   
   users:
     sessions:
@@ -61,7 +62,7 @@ en:
 
   admin:
     nav:
-      admin_panel: "Admin panel"
+      admin_panel: "TestGuru: Admin panel"
       logout: "Logout"
       guru: "Guru"
       welcome: "Welcome"     
@@ -69,6 +70,7 @@ en:
       index:
         header: "Tests"
         new_test: "New test"
+        custom_test_view: "Custom test view"
         title: "Title"
         level: "Level"
         category: "Category"  
