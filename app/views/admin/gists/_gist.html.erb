@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to gist.question.body[0..24],
+          admin_question_path(gist.question)%></td>
+  <td><%= link_to gist.gist_hash,
+          "https://gist.github.com/neverovda/#{gist.gist_hash}"%></td>
+  <td><%= link_to nil, gist.user.email %></td>
+</tr>
