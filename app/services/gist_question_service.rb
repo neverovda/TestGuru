@@ -4,7 +4,7 @@ class GistQuestionService
     @question = question
     @test = question.test 
     @client = client || 
-              Octokit::Client.new(access_token: Rails.application.secrets.gist_token)   
+              Octokit::Client.new(access_token: ENV['GIST_TOKEN'])   
   end
 
   def call

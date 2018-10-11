@@ -39,14 +39,18 @@ gem 'faraday'
 
 gem 'rails-i18n', '~> 5.0'
 
-# UI
-
 # GIT
 
 gem 'octokit', '~> 4.0'
 
+# UI
+
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
+
+#EVN
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
