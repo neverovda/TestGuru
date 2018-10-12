@@ -1,5 +1,5 @@
 <% flash.each do |key, message| %>
   <% content = message %>
-  <% content =  link_to 'Gist url', message if key == 'gist_url' %> 
+  <% content =  github_gist_link(message) if key == 'gist_hash' %>
   <%= content_tag :div, content , class: "alert type_flash_#{key}" %>
 <% end %>

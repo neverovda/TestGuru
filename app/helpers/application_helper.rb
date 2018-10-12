@@ -9,6 +9,11 @@ module ApplicationHelper
                           target: '_blank')    
   end
 
+  def github_gist_link(gist_hash)
+    content_tag(:a, gist_hash, href: "https://gist.github.com/neverovda/#{gist_hash}",
+                          target: '_blank')              
+  end
+
   def flash_message(name)
     content_tag :p, flash[name], class: "flash #{name}" if flash[name]
   end 
