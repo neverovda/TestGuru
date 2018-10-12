@@ -37,7 +37,15 @@ en:
   users:
     sessions:
       create:
-        welcome: "Welcome %{full_name}"    
+        welcome: "Welcome %{full_name}"
+
+  gists:
+    index:
+      header: "Проблемные вопросы"
+      admin_test_view: "Тесты"
+      question: "Вопрос"
+      user_email: "Email пользователя"
+      no_gist: "Вопросов нет"          
 
   tests:
     index:
@@ -57,7 +65,10 @@ en:
       all_tests: "All tests"
       result: "Result: "
     show:  
-      from: "from"    
+      from: "from"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"      
     
 
   admin:
@@ -93,3 +104,7 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"            
+
+  services:
+    gist_question_service:
+      description: "A question about %{title} from TestGuru"    

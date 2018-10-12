@@ -1,3 +1,5 @@
 <% flash.each do |key, message| %>
-  <%= content_tag :div, message, class: "alert type_flash_#{key}" %>
+  <% content = message %>
+  <% content =  github_gist_link(message) if key == 'gist_hash' %>
+  <%= content_tag :div, content , class: "alert type_flash_#{key}" %>
 <% end %>

@@ -31,14 +31,26 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '~> 4.0'
 
+# NETWORKING
+
+gem 'faraday'  
+
 # LOCALIZATION
 
 gem 'rails-i18n', '~> 5.0'
+
+# GIT
+
+gem 'octokit', '~> 4.0'
 
 # UI
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
+
+#EVN
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
