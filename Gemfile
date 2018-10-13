@@ -47,6 +47,7 @@ gem 'octokit', '~> 4.0'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
+gem 'octicons_helper'
 
 #EVN
 
