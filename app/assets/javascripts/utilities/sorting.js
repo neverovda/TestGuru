@@ -37,19 +37,25 @@ function sortRowsByTitle() {
 }
 
 function compareRowsAsc(row1, row2) {
-  var testTitle1 = row1.querySelector('td').textContent
-  var testTitle2 = row2.querySelector('td').textContent
+  var titles = testsTitles(row1, row2)
 
-  if (testTitle1 < testTitle2) { return -1 }
-  if (testTitle1 > testTitle2) { return 1 }
+  if (titles[0] < titles[1]) { return -1 }
+  if (titles[0] > titles[1]) { return 1 }
   return 0  
 }
 
 function compareRowsDesc(row1, row2) {
-  var testTitle1 = row1.querySelector('td').textContent
-  var testTitle2 = row2.querySelector('td').textContent
+  var titles = testsTitles(row1, row2)
 
-  if (testTitle1 < testTitle2) { return 1 }
-  if (testTitle1 > testTitle2) { return -1 }
+  if (titles[0] < titles[1]) { return 1 }
+  if (titles[0] > titles[1]) { return -1 }
   return 0  
+}
+
+function testTitle(row) {
+  return row.querySelector('td').textContent
+}
+
+function testsTitles(row1, row2) {
+  return [testTitle(row1), testTitle(row2)]
 }
