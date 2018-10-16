@@ -102,6 +102,8 @@ ru:
         header: "Создание нового теста"
       create:
         success: "Тест успешно создан."
+      form_inline:
+        submit: "ОК"  
 
 
   tests_mailer:

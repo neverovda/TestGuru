@@ -32,6 +32,10 @@ class TestPassage < ApplicationRecord
     amount_questions - unanswered_questions.size  
   end
 
+  def amount_completed_questions
+    number_of_current_question - 1 
+  end
+
   private
 
   def correct_answer?(answers_ids)
