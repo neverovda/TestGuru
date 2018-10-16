@@ -10,7 +10,7 @@ document.addEventListener('turbolinks:load', function() {
     var width = Math.round(completed/(amount/100)) + '%';
 
     var progressBar = document.querySelector('.progress-bar');
-    progressBar.style.width = width   
-    progressBar.textContent = width
+    progressBar.style.width = width;
+    progressBar.textContent = width;
   }
 })
