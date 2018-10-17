@@ -13,23 +13,16 @@ categories = Category.create!([{ title: 'biology' },
                                { title: 'mathematics' },
                                { title: 'physics' }])
 
-users = User.create!([{ name: 'Bobby', login: 'megatron',
-                        password: 'bobby123' , email: 'b@maiil.com'},
-                      { name: 'Mary', login: 'mar_1',
-                        password: 'mary2010', email: 'm@maiil.com' },
-                      { name: 'John White', login: 'the_best_teacher',
-                        password: 'f8rnkallks8', email: 'j@maiil.com' }])
-
 tests = Test.create!([{ title: 'botany', level: 1, category: categories[0],
-                        author: users[2] },
+                        author_id: 1 },
                       { title: 'zoology', level: 2, category: categories[0],
-                        author: users[2] },
+                        author_id: 1 },
                       { title: 'mechanics', level: 3, category: categories[3],
-                        author: users[2] },
+                        author_id: 1 },
                       { title: 'optics', level: 2, category: categories[3],
-                        author: users[2] },
+                        author_id: 1 },
                       { title: 'arithmetic', level: 1, category: categories[2],
-                        author: users[2] }])
+                        author_id: 1 }])
 
 questions = Question.create!([{ body: 'Is a rose a tree?', test: tests[0] },
                               { body: 'Is a beetle a mammal?', test: tests[1] },
@@ -49,10 +42,3 @@ Answer.create!([{ question: questions[0], body: 'No', correct: true },
                 { question: questions[4], body: '12', correct: true },
                 { question: questions[4], body: '26' },
                 { question: questions[4], body: '8' }])
-
-TestPassage.create!([{ user: users[0], test: tests[0] },
-                     { user: users[0], test: tests[2] },
-                     { user: users[0], test: tests[3] },
-                     { user: users[1], test: tests[1] },
-                     { user: users[1], test: tests[2] },
-                     { user: users[1], test: tests[3] }])
