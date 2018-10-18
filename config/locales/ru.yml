@@ -11,11 +11,16 @@ ru:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+      feedback:
+        create: "Отправить"
     label:
         test:
           title: "Название"
           level: "Уровень"
           category_id: "Категория"
+        feedback:
+          title: "Тема"
+          body: "Отзыв"  
     select:
       prompt: "Выберите категорию"      
 
@@ -49,6 +54,12 @@ ru:
       user_email: "Email пользователя"
       no_gist: "Вопросов нет"
 
+  feedbacks:
+    new:
+      feedback: "Отзыв"
+    create:
+      success: "Отзыв отправлен."
+
   tests:
     index:
       header: "Доступные тесты"
@@ -57,6 +68,7 @@ ru:
       category: "Категория"  
       author: "Автор"
       quantity_questins: "Количество вопросов"
+      feedback: "Написать отзыв"
     test:
       start: "Старт"    
 
