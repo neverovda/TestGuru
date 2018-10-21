@@ -11,11 +11,16 @@ en:
       test:
         create: "Create test"
         update: "Update test"
+      feedback:
+        create: "Sent"  
     label:
       test:
         title: "Title"
         level: "Level"
         category_id: "Category"
+      feedback:
+        title: "Title"
+        body: "Body"
     select:
       prompt: "Choose category"    
     
@@ -47,6 +52,12 @@ en:
       user_email: "Email пользователя"
       no_gist: "Вопросов нет"          
 
+  feedbacks:
+    new:
+      feedback: "Feedback"
+    create:
+      success: "Feedback sent"    
+
   tests:
     index:
       header: "Tricky tests"
@@ -55,6 +66,7 @@ en:
       category: "Category"  
       author: "Author"
       quantity_questins: "Quantity questins"
+      feedback: "Feedback"
     test:
       start: "Start"   
 

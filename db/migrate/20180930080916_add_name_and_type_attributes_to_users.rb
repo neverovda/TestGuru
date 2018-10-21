@@ -14,7 +14,7 @@ class AddNameAndTypeAttributesToUsers < ActiveRecord::Migration[5.2]
       t.index :type
       t.string :first_name
       t.string :last_name
-      t.remove :name, :string
+      t.remove :name
     end  
   end
 
