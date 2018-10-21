@@ -14,15 +14,15 @@ categories = Category.create!([{ title: 'biology' },
                                { title: 'physics' }])
 
 tests = Test.create!([{ title: 'botany', level: 1, category: categories[0],
-                        author_id: 1 },
+                        author: User.first },
                       { title: 'zoology', level: 2, category: categories[0],
-                        author_id: 1 },
+                        author: User.first },
                       { title: 'mechanics', level: 3, category: categories[3],
-                        author_id: 1 },
+                        author: User.first },
                       { title: 'optics', level: 2, category: categories[3],
-                        author_id: 1 },
+                        author: User.first },
                       { title: 'arithmetic', level: 1, category: categories[2],
-                        author_id: 1 }])
+                        author: User.first }])
 
 questions = Question.create!([{ body: 'Is a rose a tree?', test: tests[0] },
                               { body: 'Is a beetle a mammal?', test: tests[1] },

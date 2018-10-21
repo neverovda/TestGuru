@@ -1,15 +1,16 @@
 class FeedbacksController < ApplicationController
 
   def new
-    @feedback = current_user.feedbacks.new
+    @feedback = Feedback.new
   end
 
   def create
-    @feedback = current_user.feedbacks.new(feedback_params) 
+    @feedback = Feedback.new(title: feedback_params[:title],
+                             body: feedback_params[:body],
+                             email: current_user.email) 
     
     if @feedback.save
-      FeedbacksMailer.send_feedback(feedback_params, 
-                                    current_user.email).deliver_now
+      
       redirect_to tests_path, notice: t('.success')      
     else
       render :new
