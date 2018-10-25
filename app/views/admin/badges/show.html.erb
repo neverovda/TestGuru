@@ -1,0 +1,30 @@
+<h1><%= t('.header') %></h1>
+
+<p>
+  <%= link_to t('.badges'), admin_badges_path, class: 'btn btn-primary' %>
+</p>
+
+<p>
+  <strong><%= t('.name')%>:</strong>
+  <%= @badge.name %>
+</p>
+
+<p>
+  <strong>Description</strong>
+  <%= @badge.description %>
+</p>
+
+<p>
+  <strong>one_successful_attempt</strong>
+  <%= @badge.one_successful_attempt %>
+</p>
+
+<p>
+  <strong>level</strong>
+  <%= @badge.level %>
+</p>
+
+<p>
+  <strong>category</strong>
+  <%= @category_title %>
+</p>

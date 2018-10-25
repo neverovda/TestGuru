@@ -69,6 +69,7 @@ ru:
       author: "Автор"
       quantity_questins: "Количество вопросов"
       feedback: "Написать отзыв"
+      badges: "Награды"
     test:
       start: "Старт"    
 
@@ -83,6 +84,15 @@ ru:
       success: "Gist успешно созранён!"
       failure: "Во время сохранения gits произошла ошибка"      
 
+  personal_badges:
+    index:
+      header: "Список наград"
+      test_view: "Тесты"
+      personal_badges: "Личные награды"
+      name: "Имя"
+      description: "Описание"
+      no_badges: "Нет наград"
+      all_badges: "Существующие виды наград"
 
   admin:    
     nav:
@@ -102,6 +112,7 @@ ru:
         quantity_questins: "Количество вопросов"
         action: "Действие"
         no_tests: "Нет тестов"
+        badges: "Награды"
       show:
         header: "Тест"
         title: "Название"
@@ -115,7 +126,23 @@ ru:
       create:
         success: "Тест успешно создан."
       form_inline:
-        submit: "ОК"  
+        submit: "ОК"
+    badges:
+      index:
+        header: "Список наград"
+        new_badge: "Создать награду"
+        no_badges: "Нет наград"
+        admin_test_view: "Тесты"
+        name: "Название"
+      new:
+        header: "Создание новой награды"
+        badges: "Награды"   
+      show:
+        header: "Награда"
+        name: "Название"
+        badges: "Награды"            
+      create:
+        success: "Награда успешно создана."      
 
 
   tests_mailer:

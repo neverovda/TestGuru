@@ -67,6 +67,7 @@ en:
       author: "Author"
       quantity_questins: "Quantity questins"
       feedback: "Feedback"
+      badges: "Badges"
     test:
       start: "Start"   
 
@@ -82,6 +83,15 @@ en:
       success: "Gist was successfully created!"
       failure: "An error occurred while saving gist"      
     
+  personal_badges:
+    index:
+      header: "Badges"
+      test_view: "Tests"
+      personal_badges: "Personal badges"
+      name: "Name"
+      description: "Description"
+      no_badges: "No badges"
+      all_badges: "All types of badges"  
 
   admin:
     nav:
@@ -100,6 +110,7 @@ en:
         author: "Author"
         quantity_questins: "Quantity questins"
         no_tests: "No tests"
+        badges: "Badges"
       show:
         header: "Тест"
         title: "Title"
@@ -113,7 +124,23 @@ en:
       create:
         success: "Test was successfully created."
       form_inline:
-        submit: "OK"  
+        submit: "OK"
+    badges:
+      index:
+        header: "Badges"
+        new_badge: "Create badges"
+        no_badges: "No badges"
+        admin_test_view: "Tests"
+        name: "Name"
+      new:
+        header: "Create badge"
+        badges: "Badges"  
+      show:
+        header: "Badge"
+        name: "Name"
+        badges: "Badges"
+      create:
+        success: "Badge was successfully created."      
 
   tests_mailer:
     completed_test:

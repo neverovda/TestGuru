@@ -1,0 +1,33 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  
+  <%= render 'shared/errors', resource: @badge %> 
+
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :badge_name %>
+  </p>
+
+  <p>
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :badge_description %>
+  </p>
+
+  <p>
+    <%= form.label :one_successful_attempt %><br>
+    <%= form.check_box :one_successful_attempt, id: :badge_one_successful_attempt %>
+  </p>
+
+  <p>
+    <%= form.label :level %>
+    <%= form.text_field :level, id: :badge_level %>
+  </p>
+
+  <p>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
+
+  <p><%= form.submit %></p>
+
+<% end %>  
+

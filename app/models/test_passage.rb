@@ -5,7 +5,34 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_next_question
+  before_save :mark_successful
+  after_save :rewarding
 
+  scope :by_category, -> (category) { joins(:test).
+                                            where(tests: {category: category}) }
+
+  scope :by_level, -> (level) { joins(:test).
+                                      where(tests: {level: level}) }
+
+  def self.amount_user_test_attempt(test)
+    where(test: test).count
+  end                                                                                
+  
+  def self.amount_user_success(user)
+    where(user: user).where(success: true).group(:test).count.keys.size
+  end  
+
+  def self.amount_user_success_by_category(user, category)
+    by_category(category).amount_user_success(user)    
+  end
+
+  def self.amount_user_success_by_level(user, level)
+    by_level(level).amount_user_success(user)
+  end
+
+  def self.success?(test)
+    where(test: test, success: true).present?
+  end
 
   def completed?
     current_question.nil?
@@ -60,6 +87,14 @@ class TestPassage < ApplicationRecord
 
   def unanswered_questions
     test.questions.order(:id).where('id > ?', current_question.id)  
+  end
+
+  def mark_successful
+    self.success = true if completed? && success? 
+  end
+
+  def rewarding
+    Badge.rewarding(user, test) if completed? && success?  
   end  
 
 end
