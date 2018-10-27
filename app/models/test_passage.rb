@@ -6,7 +6,6 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_next_question
   before_save :mark_successful
-  after_save :rewarding
 
   scope :by_category, -> (category) { joins(:test).
                                             where(tests: {category: category}) }
@@ -28,10 +27,6 @@ class TestPassage < ApplicationRecord
 
   def self.amount_user_success_by_level(user, level)
     by_level(level).amount_user_success(user)
-  end
-
-  def self.success?(test)
-    where(test: test, success: true).present?
   end
 
   def completed?
@@ -90,11 +85,7 @@ class TestPassage < ApplicationRecord
   end
 
   def mark_successful
-    self.success = true if completed? && success? 
+    self.success = completed? && success? 
   end
-
-  def rewarding
-    Badge.rewarding(user, test) if completed? && success?  
-  end  
 
 end

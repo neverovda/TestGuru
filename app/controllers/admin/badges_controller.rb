@@ -1,19 +1,12 @@
 class Admin::BadgesController < Admin::BaseController
 
-  before_action :find_badges, only: %i[index]
   before_action :find_badge, only: %i[show update destroy]
 
   def index
-
+    @badges = Badge.all
   end
 
   def show
-    category = Category.find_by_id(@badge.category_id)
-    if category
-      @category_title = category.title
-    else
-      @category_title = ""
-    end    
   end
 
   def new
@@ -49,13 +42,8 @@ class Admin::BadgesController < Admin::BaseController
 
   private
 
-  def find_badges
-    @badges = Badge.all
-  end
-
   def badge_params
-    params.require(:badge).permit(:name, :description, :level,
-                                  :category_id, :one_successful_attempt)
+    params.require(:badge).permit(:name, :description, :rule_type, :rule_value, :img_direction)
   end  
 
   def find_badge

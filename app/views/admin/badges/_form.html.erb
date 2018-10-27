@@ -13,18 +13,18 @@
   </p>
 
   <p>
-    <%= form.label :one_successful_attempt %><br>
-    <%= form.check_box :one_successful_attempt, id: :badge_one_successful_attempt %>
+    <%= form.label :rule_type %>
+    <%= form.select :rule_type, RewardingServise.rule_types %>
   </p>
 
   <p>
-    <%= form.label :level %>
-    <%= form.text_field :level, id: :badge_level %>
+    <%= form.label :rule_value %>
+    <%= form.text_field :rule_value, id: :badge_rule_value %>
   </p>
 
   <p>
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+    <%= form.label :img_direction %>
+    <%= form.text_field :img_direction, id: :badge_img_direction %>
   </p>
 
   <p><%= form.submit %></p>

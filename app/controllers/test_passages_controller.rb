@@ -14,7 +14,17 @@ class TestPassagesController < ApplicationController
     
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      redirect_to result_test_passage_path(@test_passage)
+      
+      badges = RewardingServise.new(@test_passage).call
+      notice = if badges.present?
+                  current_user.badges.push(*badges)
+                  names = badges.collect{|badge| badge.name}.join(',')
+                  { notice: "Получены награды: #{names}." }
+                else
+                  {}
+                end    
+
+      redirect_to result_test_passage_path(@test_passage), notice 
     else
       redirect_to test_passage_path(@test_passage) 
     end  

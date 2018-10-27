@@ -27,14 +27,13 @@ ActiveRecord::Schema.define(version: 2018_10_24_122701) do
   create_table "badges", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.integer "level"
-    t.boolean "one_successful_attempt", default: false
-    t.bigint "category_id"
+    t.string "rule_type", null: false
+    t.string "rule_value", null: false
+    t.string "img_direction"
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_badges_on_author_id"
-    t.index ["category_id"], name: "index_badges_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
