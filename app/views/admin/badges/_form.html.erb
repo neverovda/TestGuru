@@ -14,7 +14,7 @@
 
   <p>
     <%= form.label :rule_type %>
-    <%= form.select :rule_type, RewardingServise.rule_types %>
+    <%= form.select :rule_type, rule_types %>
   </p>
 
   <p>
@@ -23,8 +23,8 @@
   </p>
 
   <p>
-    <%= form.label :img_direction %>
-    <%= form.text_field :img_direction, id: :badge_img_direction %>
+    <%= form.label :image_path %>
+    <%= form.text_field :image_path, id: :badge_image_path %>
   </p>
 
   <p><%= form.submit %></p>

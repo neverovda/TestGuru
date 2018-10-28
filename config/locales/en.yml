@@ -132,6 +132,10 @@ en:
         no_badges: "No badges"
         admin_test_view: "Tests"
         name: "Name"
+      form:
+        first_successful_attempt: "first successful attempt"
+        category: "category"
+        level: "level"  
       new:
         header: "Create badge"
         badges: "Badges"  

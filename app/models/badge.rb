@@ -1,4 +1,7 @@
 class Badge < ApplicationRecord
+  
+  RULE_TYPES = ['first_successful_attempt', 'category', 'level'].freeze
+  
   belongs_to :author, class_name: 'User'
   
   has_many :personal_badges, dependent: :destroy
@@ -7,7 +10,7 @@ class Badge < ApplicationRecord
   before_validation :check_imagine
 
   def check_imagine
-    self.img_direction = '/badge.jpg' if img_direction.blank? 
+    self.image_path = '/badge.jpg' if image_path.blank? 
   end
-  
+
 end

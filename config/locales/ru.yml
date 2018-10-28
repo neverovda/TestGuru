@@ -134,9 +134,13 @@ ru:
         no_badges: "Нет наград"
         admin_test_view: "Тесты"
         name: "Название"
+      form:
+        first_successful_attempt: "с первой удачной попытки"
+        category: "определенная категория"
+        level: "определенный уровень"     
       new:
         header: "Создание новой награды"
-        badges: "Награды"   
+        badges: "Награды"
       show:
         header: "Награда"
         name: "Название"

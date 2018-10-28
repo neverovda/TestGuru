@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_10_24_122701) do
     t.string "description"
     t.string "rule_type", null: false
     t.string "rule_value", null: false
-    t.string "img_direction"
+    t.string "image_path"
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

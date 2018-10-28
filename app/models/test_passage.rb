@@ -12,23 +12,7 @@ class TestPassage < ApplicationRecord
 
   scope :by_level, -> (level) { joins(:test).
                                       where(tests: {level: level}) }
-
-  def self.amount_user_test_attempt(test)
-    where(test: test).count
-  end                                                                                
   
-  def self.amount_user_success(user)
-    where(user: user).where(success: true).group(:test).count.keys.size
-  end  
-
-  def self.amount_user_success_by_category(user, category)
-    by_category(category).amount_user_success(user)    
-  end
-
-  def self.amount_user_success_by_level(user, level)
-    by_level(level).amount_user_success(user)
-  end
-
   def completed?
     current_question.nil?
   end  
