@@ -5,8 +5,14 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_next_question
+  before_save :mark_successful
 
+  scope :by_category, -> (category) { joins(:test).
+                                            where(tests: {category: category}) }
 
+  scope :by_level, -> (level) { joins(:test).
+                                      where(tests: {level: level}) }
+  
   def completed?
     current_question.nil?
   end  
@@ -60,6 +66,10 @@ class TestPassage < ApplicationRecord
 
   def unanswered_questions
     test.questions.order(:id).where('id > ?', current_question.id)  
-  end  
+  end
+
+  def mark_successful
+    self.success = completed? && success? 
+  end
 
 end
