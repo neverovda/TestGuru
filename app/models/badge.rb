@@ -1,15 +1,15 @@
 class Badge < ApplicationRecord
   
-  RULE_TYPES = ['first_successful_attempt', 'category', 'level'].freeze
+  RULE_TYPES = %w[first_successful_attempt category level]
   
   belongs_to :author, class_name: 'User'
   
   has_many :personal_badges, dependent: :destroy
   has_many :users, through: :personal_badges
 
-  before_validation :check_imagine
+  before_validation :set_default_image
 
-  def check_imagine
+  def set_default_image
     self.image_path = '/badge.jpg' if image_path.blank? 
   end
 

@@ -17,7 +17,7 @@ class RewardingServise
   
   def reward_by_first_successful_attempt?(_param)
     @test_passage.success? &&  
-    TestPassage.where(test: @test).count == 1
+      TestPassage.where(test: @test).count == 1
   end  
     
   def reward_by_category?(category_title)
@@ -33,17 +33,15 @@ class RewardingServise
     Test.where(level: @test.level).count == 
       amount_user_success_by_level(@user, @test.level)
   end
-
-  def TestPassage.amount_user_success(user)
-    where(user: user).where(success: true).group(:test).count.keys.size
-  end  
-
+  
   def amount_user_success_by_category(user, category)
-    TestPassage.by_category(category).amount_user_success(user)    
+    user.test_passages.by_category(category).where(success: true).
+         group(:test).count.keys.size
   end
 
   def amount_user_success_by_level(user, level)
-    TestPassage.by_level(level).amount_user_success(user)
+    user.test_passages.by_level(level).where(success: true).
+         group(:test).count.keys.size
   end
   
 end
