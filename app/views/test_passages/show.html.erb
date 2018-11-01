@@ -11,6 +11,12 @@
   </div>
 <% end %>
 
+<%= content_tag :p, class: "timer", 
+                data: { redirect: result_test_passage_path(@test_passage),
+                        time: @test_passage.seconds_left } do %>
+  Timer: <span class="minutes"></span>:<span class="seconds"></span>
+<% end %>                  
+
 <b>
   <%= @test_passage.current_question.body %>
 </b>

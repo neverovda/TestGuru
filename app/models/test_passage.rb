@@ -5,6 +5,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_next_question
+  before_save :set_end_time, unless: :end_time 
   before_save :mark_successful
 
   scope :by_category, -> (category) { joins(:test).
@@ -18,9 +19,25 @@ class TestPassage < ApplicationRecord
   end  
 
   def accept!(answers_ids)
-    self.correct_questions += 1 if correct_answer?(answers_ids)
+    self.correct_questions += 1 if correct_answer?(answers_ids) && time_not_over?
     save!
   end
+
+  def time_over?
+    Time.current >  self.end_time
+  end
+
+  def time_not_over?
+    !time_over?
+  end
+
+  def seconds_left
+    if time_not_over? 
+      (self.end_time - Time.current).to_i
+    else
+      0
+    end    
+  end  
 
   def total_percanteges
     (correct_questions.to_f/test.questions.size * 100).round
@@ -72,4 +89,8 @@ class TestPassage < ApplicationRecord
     self.success = completed? && success? 
   end
 
+  def set_end_time
+    self.end_time = Time.current + test.time.minutes
+  end
+  
 end

@@ -14,8 +14,13 @@
 
   <p>
     <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %> 
-  </p>  
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
+
+  <p>
+    <%= form.label :time %>
+    <%= form.text_field :time, id: :test_time %>
+  </p>
 
   <p><%= form.submit %></p>
 
