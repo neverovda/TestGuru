@@ -11,11 +11,12 @@
   </div>
 <% end %>
 
-<%= content_tag :p, class: "timer", 
-                data: { redirect: result_test_passage_path(@test_passage),
-                        time: @test_passage.seconds_left } do %>
-  Timer: <span class="minutes"></span>:<span class="seconds"></span>
-<% end %>                  
+<% if @test_passage.test.with_timer?  %>
+  <%= content_tag :p, class: "timer", 
+                  data: { time: @test_passage.seconds_left } do %>
+    Timer: <span class="minutes"></span>:<span class="seconds"></span>
+  <% end %>                  
+<% end %>
 
 <b>
   <%= @test_passage.current_question.body %>
@@ -30,6 +31,6 @@
    <% end %>
 
    <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
-   <p><%= form.submit 'Next' %></p>
+   <p><%= form.submit 'Next', class: "next" %></p>
 
 <% end %>
