@@ -12,7 +12,7 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answers_ids])
     
-    if @test_passage.completed?
+    if @test_passage.completed? || @test_passage.time_over?
       TestsMailer.completed_test(@test_passage).deliver_now
       
       badges = RewardingServise.new(@test_passage).call

@@ -16,4 +16,12 @@ class Test < ApplicationRecord
   scope :medium, -> { by_level(2..4) }
   scope :hard, -> { by_level(5..Float::INFINITY) }
 
+  def with_timer?
+    self.time > 0
+  end
+
+  def whithout_timer?
+    !with_timer?
+  end
+
 end

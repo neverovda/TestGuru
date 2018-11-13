@@ -54,6 +54,7 @@ gem 'octicons_helper'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -18,9 +18,29 @@ class TestPassage < ApplicationRecord
   end  
 
   def accept!(answers_ids)
-    self.correct_questions += 1 if correct_answer?(answers_ids)
+    self.correct_questions += 1 if correct_answer?(answers_ids) && time_not_over?
     save!
   end
+
+  def time_over?
+    if test.whithout_timer?
+      false
+    else  
+      Time.current >  end_time + 3.seconds
+    end  
+  end
+
+  def time_not_over?
+    !time_over?
+  end
+
+  def seconds_left
+    if time_not_over? 
+      (end_time - Time.current).to_i
+    else
+      0
+    end    
+  end  
 
   def total_percanteges
     (correct_questions.to_f/test.questions.size * 100).round
@@ -72,4 +92,8 @@ class TestPassage < ApplicationRecord
     self.success = completed? && success? 
   end
 
+  def end_time  
+    @end_time ||= self.created_at + test.time.minutes
+  end
+  
 end
